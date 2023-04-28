@@ -1,0 +1,246 @@
+﻿<Window x:Class="WpfCalculatorApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfCalculatorApp"
+        mc:Ignorable="d"
+        Title="MR Calculator" Height="600" Width="400"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Icon="icon.ico">
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.8*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Margin="15 0 15 0" FontSize="12" Text="0" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Right" Background="Transparent" x:Name="MainInput1"/>
+            <TextBox Grid.Row="1" x:Name="MainInput2" Text="0" Background="Transparent" Foreground="White" Margin="15 0 15 0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="60" BorderThickness="0"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="15 0 15 15">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- 1 line -->
+            <Grid Margin="0 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Content="AC" x:Name="ACbtn" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="33" Margin="7 0 7 0" Background="#A0A0A0" Click="ACbtn_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Content="clr" x:Name="bclear" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="33" Margin="7 0 7 0" Background="#A0A0A0" Click="bclear_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Grid.Column="2" Content="%" x:Name="bpercentagedivide" FontSize="33" Margin="7 0 7 0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#A0A0A0" Click="bpercentagedivide_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Grid.Column="3" Content="/" x:Name="bdivide" FontSize="45" Margin="7 0 7 0" Foreground="#F5F8F8" Background="#F69906" Click="bdivide_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+
+
+            <!-- 2 line -->
+            <Grid Grid.Row="1" Margin="0 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Content="7" x:Name="b7" Margin="7 0 7 0" FontSize="33" Background="#313131" Foreground="#F7F7F7" Click="b7_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Grid.Column="1" x:Name="b8" Content="8" Margin="7 0 7 0" FontSize="33" Background="#313131" Foreground="#F7F7F7" Click="b8_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Grid.Column="2" x:Name="b9" Content="9" Margin="7 0 7 0" FontSize="33" Background="#313131" Foreground="#F7F7F7" Click="b9_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Grid.Column="3" Content="*" x:Name="bmultiply" FontSize="60" Margin="7 0 7 0" Foreground="#F5F8F8" Background="#F69906" Click="bmultiply_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+
+
+            <!-- 3 line -->
+            <Grid Grid.Row="2" Margin="0 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Content="4" x:Name="b4" Margin="7 0 7 0" FontSize="33" Background="#313131" Foreground="#F7F7F7" Click="b4_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Grid.Column="1" Content="5" x:Name="b5" Margin="7 0 7 0" FontSize="33" Background="#313131" Foreground="#F7F7F7" Click="b5_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Grid.Column="2" Content="6" x:Name="b6" Margin="7 0 7 0" FontSize="33" Background="#313131" Foreground="#F7F7F7" Click="b6_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Grid.Column="3" Content="-" x:Name="bsubtract" FontSize="30" Margin="7 0 7 0" Foreground="#F5F8F8" Background="#F69906" Click="bsubtract_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+
+
+            <!-- 4 line -->
+            <Grid Grid.Row="3" Margin="0 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Content="1" x:Name="b1" Margin="7 0 7 0" FontSize="33" Background="#313131" Foreground="#F7F7F7" Click="b1_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Grid.Column="1" Content="2" x:Name="b2" Margin="7 0 7 0" FontSize="33" Background="#313131" Foreground="#F7F7F7" Click="b2_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Grid.Column="2" Content="3" x:Name="b3" Margin="7 0 7 0" FontSize="33" Background="#313131" Foreground="#F7F7F7" Click="b3_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Grid.Column="3" Content="+" x:Name="bplus" Margin="7 0 7 0" FontSize="30" Foreground="#F5F8F8" Background="#F69906" Click="bplus_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+
+            <!-- 5 line -->
+            <Grid Grid.Row="4" Margin="0 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Content="0" x:Name="b0" Margin="7 0 7 0" FontSize="33" Background="#313131" Foreground="#F7F7F7" Click="b0_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="50"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Content="." x:Name="bdot" Margin="7 0 7 0" FontSize="33" Background="#313131" Foreground="#F7F7F7" Click="bdot_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="50"></Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+                    <Button Grid.Column="1" Content="=" x:Name="bequal" FontSize="30" Margin="7 0 7 0" Foreground="#F5F8F8" Background="#F69906" Click="bequal_Click" >
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="50"></Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
