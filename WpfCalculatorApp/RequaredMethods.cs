@@ -14,20 +14,13 @@ namespace WpfCalculatorApp
         public void NumberBtnClick(object element)
         {
             _mainWindow.tmpSaver = _mainWindow.tmpSaver.Equals("0") ? $"{element}" : _mainWindow.tmpSaver + element;
-
-            _mainWindow.MainInput2.Text = _mainWindow.tmpSaver.Length >= 11 
-                ? _mainWindow.tmpSaver.Substring(_mainWindow.tmpSaver.Length - 11)
-                : _mainWindow.tmpSaver;
+            ChangerOfMainInput2Values();
         }
 
         public void AddOperator(string element)
         {
-            if (!_mainWindow.tmpSaver.EndsWith(" "))
-                _mainWindow.tmpSaver += element;
-
-            _mainWindow.MainInput2.Text = _mainWindow.tmpSaver.Length >= 11
-                 ? _mainWindow.tmpSaver.Substring(_mainWindow.tmpSaver.Length - 11)
-                 : _mainWindow.MainInput2.Text = _mainWindow.tmpSaver;
+            if (!_mainWindow.tmpSaver.EndsWith(" ")) _mainWindow.tmpSaver += element;
+            ChangerOfMainInput2Values();
         }
 
         public void Clear()
@@ -43,10 +36,15 @@ namespace WpfCalculatorApp
                             _mainWindow.tmpSaver[_mainWindow.tmpSaver.Length - 3] == ' ')
                                 _mainWindow.tmpSaver = _mainWindow.tmpSaver.Remove(_mainWindow.tmpSaver.Length - 3, 3);
 
-                _mainWindow.MainInput2.Text = _mainWindow.tmpSaver.Length >= 11
+                ChangerOfMainInput2Values();
+            }
+        }
+
+        private void ChangerOfMainInput2Values()
+        {
+            _mainWindow.MainInput2.Text = _mainWindow.tmpSaver.Length >= 11
                  ? _mainWindow.tmpSaver.Substring(_mainWindow.tmpSaver.Length - 11)
                  : _mainWindow.tmpSaver;
-            }
         }
 
         public void Calculate()
